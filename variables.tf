@@ -56,4 +56,6 @@ variable "ssh_user"      { default = "ec2-user"   description = "ssh user" }
 
 ##ALB Certificate ARN
 
-vriable "web_ssl_certificate_id" { default =  "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4"}
+variable "web_ssl_certificate_id" { default =  "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4"}
+
+

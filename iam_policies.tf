@@ -68,9 +68,9 @@ resource "aws_iam_instance_profile" "default_iam_instance_profile" {
 
 data "template_file" "tpl_iamrolepolicy_ec2_default" {
     template = "${file("${path.module}/resources/policies/EC2ReadOnlyPolicy.json")}"
-    vars {
-        bucket = "${aws_s3_bucket.config_bucket.bucket}"
-    }
+#    vars {
+#        bucket = "${aws_s3_bucket.config_bucket.bucket}"
+#    }
 }
 
 resource "aws_iam_role_policy" "default_iamrole_policy_ec2" {
