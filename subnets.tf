@@ -15,7 +15,7 @@ resource "aws_subnet" "subnet_public_dmz" {
 
 resource "aws_subnet" "subnet_public_dmz2" {
     vpc_id = "${aws_vpc.vpc_blaze.id}"
-    cidr_block = "${var.blaze_dmz}"
+    cidr_block = "${var.blaze_dmz2}"
     availability_zone = "${var.az_2}"
     map_public_ip_on_launch = true
 

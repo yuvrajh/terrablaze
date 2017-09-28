@@ -100,3 +100,10 @@ condition {
     values = ["/api*"]
   }
 }
+
+output "alb_address" {
+  value = "${aws_alb.frontend.public_dns}"
+}
+output "alb_zone_id" {
+  value = "${aws_alb.frontend.zone_id}"
+}

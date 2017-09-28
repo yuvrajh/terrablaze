@@ -6,7 +6,7 @@ resource "aws_instance" "ec2_bastion" {
     key_name =              "${var.key_name}"
     monitoring =            true
     source_dest_check =     false
-	iam_instance_profile =  "$default_iam_instance_profile.name"
+    iam_instance_profile =  "${aws_iam_instance_profile.default_iam_instance_profile.name}"
     subnet_id =             "${aws_subnet.subnet_public_dmz.id}"
 	root_block_device {
         volume_type           = "gp2"

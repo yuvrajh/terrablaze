@@ -14,6 +14,7 @@ variable "aws_account_name" { default = "electron" description = "replace with y
 #VPC
 variable "vpc"              { default = "10.0.0.0/16"   description = "Main VPC" }
 variable "blaze_dmz"           { default = "10.0.10.0/24"  description = "DMZ Subnet" }
+variable "blaze_dmz2"           { default = "10.0.20.0/24"  description = "DMZ Subnet" }
 variable "blaze_a"           { default = "10.0.11.0/24"  description = "Blaze api Subnet A" }
 variable "blaze_b"           { default = "10.0.12.0/24"  description = "Blaze elasticsearch Subnet B" }
 variable "blaze_c"           { default = "10.0.13.0/24"  description = "Blaze worker Subnet C" }
