@@ -7,9 +7,8 @@ variable "version" {
 variable "environment"      { default = "PROD"   description = "ENV" }
 
 variable "project"      { default = "tradee"   description = "PROJECT" }
-variable "aws_account_id" {
-  default = "123456789012" # replace with your aws account id
-}
+variable "aws_account_id" {  default = "123456789012" # replace with your aws account id }
+variable "aws_account_name" { default = "electron" # replace with your aws account id }
 
 
 #VPC
