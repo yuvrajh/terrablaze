@@ -13,6 +13,21 @@ resource "aws_subnet" "subnet_public_dmz" {
     }
 }
 
+resource "aws_subnet" "subnet_public_dmz2" {
+    vpc_id = "${aws_vpc.vpc_blaze.id}"
+    cidr_block = "${var.blaze_dmz}"
+    availability_zone = "${var.az_2}"
+    map_public_ip_on_launch = true
+
+    tags {
+        Name = "${var.environment}.subnet.dmz2"
+        Environment = "${var.environment}"
+        Version = "${var.version}"
+    }
+}
+
+
+
 # Private Subnets
 
 resource "aws_subnet" "subnet_private_1" {

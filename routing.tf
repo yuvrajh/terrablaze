@@ -49,6 +49,13 @@ resource "aws_route_table_association" "rta_igw" {
     route_table_id =        "${aws_route_table.rt_igw.id}"
 }
 
+##subnet_public_dmz2
+
+resource "aws_route_table_association" "rta_igw1" {
+    subnet_id =             "${aws_subnet.subnet_public_dmz2.id}"
+    route_table_id =        "${aws_route_table.rt_igw.id}"
+}
+
 
 resource "aws_route_table_association" "rta_nat_gw_a" {
     subnet_id =             "${aws_subnet.subnet_private_1.id}"
