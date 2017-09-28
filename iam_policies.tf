@@ -22,15 +22,15 @@ EOF
 
 resource "aws_iam_instance_profile" "iam_instance_profile" {
     name = "${var.environment}_iam_instance_profile_${var.aws_region}"
-    roles = ["${aws_iam_role.api_instance_role.name}"]
+    role = "${aws_iam_role.api_instance_role.name}"
 }
 
 
 data "template_file" "tpl_iamrolepolicy_ec2_api" {
     template = "${file("${path.module}/resources/policies/EC2ReadOnlyPolicy.json")}"
-    vars {
-        bucket = "${aws_s3_bucket.config_bucket.bucket}"
-    }
+#    vars {
+#        bucket = "${aws_s3_bucket.config_bucket.bucket}"
+#    }
 }
 
 resource "aws_iam_role_policy" "iamrole_policy_ec2" {
@@ -62,13 +62,17 @@ EOF
 
 resource "aws_iam_instance_profile" "default_iam_instance_profile" {
     name = "${var.environment}_default_iam_instance_profile_${var.aws_region}"
-    roles = ["${aws_iam_role.default_instance_role.name}"]
+    role = "${aws_iam_role.default_instance_role.name}"
 }
 
 
 data "template_file" "tpl_iamrolepolicy_ec2_default" {
     template = "${file("${path.module}/resources/policies/EC2ReadOnlyPolicy.json")}"
+#    vars {
+#        bucket = "${aws_s3_bucket.config_bucket.bucket}"
+#    }
 }
+
 
 resource "aws_iam_role_policy" "default_iamrole_policy_ec2" {
     name = "${var.environment}DefaultEC2ReadOnlyPolicy"

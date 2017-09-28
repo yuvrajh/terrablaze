@@ -51,7 +51,7 @@ resource "aws_security_group" "sg_api" {
         from_port =     80
         to_port =       80
         protocol =      "tcp"
-        source_security_group_id =   "${aws_security_group.sg_alb.id}"
+        cidr_blocks =   ["${aws_security_group.sg_alb.id}"]
     }
 	
 	#HTTPS
@@ -59,8 +59,9 @@ resource "aws_security_group" "sg_api" {
         from_port =     443
         to_port =       443
         protocol =      "tcp"
-        source_security_group_id =   "${aws_security_group.sg_alb.id}"
+        cidr_blocks =   ["${aws_security_group.sg_alb.id}"]
     }
+
 
     egress {
         from_port =     0
