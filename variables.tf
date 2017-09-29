@@ -5,7 +5,6 @@ variable "version" {
 }
 
 variable "environment"      { default = "PROD"   description = "ENV" }
-
 variable "project"      { default = "tradee"   description = "PROJECT" }
 variable "aws_account_id" {  default = "123456789012" description = "replace with your aws account id" }
 variable "aws_account_name" { default = "electron" description = "replace with your aws account name" }
@@ -43,8 +42,8 @@ variable "ami" {
 ##Instance Type
 variable "instance_type" {
     default = {
-        bastion =             "t2.micro"
-        elasticsearch =       "m4.2xlarge"
+        bastion =   "t2.micro"
+        api =       "t2.micro"
     }
     description = "AWS instance type (must be compatible with corresponding AMI)"
 }
@@ -59,3 +58,11 @@ variable "ssh_user"      { default = "ec2-user"   description = "ssh user" }
 variable "web_ssl_certificate_id" { default =  "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4"}
 
 
+### ASGs
+
+variable "min_cluster_size_api"          { default = "0"   description = "min_size" }
+variable "desired_cluster_size_api"      { default = "0"   description = "desired" }
+variable "max_cluster_size_api"          { default = "0"   description = "max_size" }
+
+variable "health_check_grace_period"     { default = "300"   description = "health_check_grace_period" }
+variable "health_check_type"             { default = "EC2"   description = "EC2/ELB" }
