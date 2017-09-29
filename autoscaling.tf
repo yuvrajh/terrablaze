@@ -7,7 +7,7 @@ resource "aws_launch_configuration" "lc_api" {
     key_name             = "${var.key_name}"
     iam_instance_profile = "${aws_iam_instance_profile.iam_instance_profile.name}"
     security_groups      = ["${aws_security_group.sg_api.id}"]
-    user_data            = "${template_file.api_launch_config.rendered}"
+    user_data            = "${data.template_file.api_launch_config.rendered}"
 
     root_block_device {
         volume_type           = "gp2"
@@ -19,7 +19,7 @@ resource "aws_launch_configuration" "lc_api" {
 }
 
 data "template_file" "api_launch_config" {
-    template = "${file("${path.module}/resources/launch-configs/lc-api")}"
+    template = "${file("${path.module}/resources/launch-configs/lc-api.sh")}"
 }
 ### ASGs
 
